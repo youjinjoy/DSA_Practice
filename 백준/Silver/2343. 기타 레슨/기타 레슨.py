@@ -8,7 +8,7 @@ left=max(lecture_times)
 right=sum(lecture_times)
 answer=0
 
-while left<=right:
+while left<right:
     cnt=1
     total=0
     mid=(left+right)//2
@@ -23,6 +23,6 @@ while left<=right:
     if cnt>m:
         left=mid+1
     else:
-        right=mid-1
+        right=mid
 
 print(left)
