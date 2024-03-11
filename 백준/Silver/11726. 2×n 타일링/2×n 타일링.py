@@ -1,14 +1,11 @@
 import sys
-input=sys.stdin.readline
+input = sys.stdin.readline
 
-n=int(input())
-a=[0 for _ in range(n+1)]
-a[0]=0
-a[1]=1
-if n>1:
-  a[2]=2
+n = int(input())
+# 필요한 최근 두 값을 저장합니다.
+prev, current = 0, 1
 
-for i in range(3,n+1):
-  a[i]=(a[i-1]+a[i-2])%10007
+for i in range(1, n + 1):
+    prev, current = current, (prev + current) % 10007
 
-print(a[n])
+print(current)
