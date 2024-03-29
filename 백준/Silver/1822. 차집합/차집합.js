@@ -10,7 +10,7 @@ const [[nA, nB], [...A], [...B]] = fs
 const setA = new Set(A);
 const setB = new Set(B);
 
-const union = setA.forEach((a) => {
+const intersection = setA.forEach((a) => {
   if (setB.has(a)) setA.delete(a);
 });
 
