@@ -30,4 +30,4 @@
 
 ## 참고 링크
 
-![LIS](https://youtu.be/CE2b_-XfVDk?si=Ks9Jq7rBFC5hLtOH)
+[LIS 참고 유튜브 영상](https://youtu.be/CE2b_-XfVDk?si=Ks9Jq7rBFC5hLtOH)
