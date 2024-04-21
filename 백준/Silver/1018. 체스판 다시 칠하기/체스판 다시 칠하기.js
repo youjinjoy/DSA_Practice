@@ -37,30 +37,22 @@ rl.on("line", (line) => {
 
   for (let x = 8; x <= N; x++) {
     for (let y = 8; y <= M; y++) {
-      let result = 0;
-
-      for (let i = x - 8; i < x; i++) {
-        for (let j = y - 8; j < y; j++) {
-          if (board[i][j] !== black[i - (x - 8)][j - (y - 8)]) {
-            result += 1;
-          }
-        }
-      }
-
-      min = Math.min(min, result);
-      result = 0;
-
-      for (let i = x - 8; i < x; i++) {
-        for (let j = y - 8; j < y; j++) {
-          if (board[i][j] !== white[i - (x - 8)][j - (y - 8)]) {
-            result += 1;
-          }
-        }
-      }
-
-      min = Math.min(min, result);
+      min = Math.min(min, calculateFromBoard(x, y, black));
+      min = Math.min(min, calculateFromBoard(x, y, white));
     }
   }
 
   console.log(min);
 });
+
+function calculateFromBoard(x, y, arr) {
+  let result = 0;
+  for (let i = x - 8; i < x; i++) {
+    for (let j = y - 8; j < y; j++) {
+      if (board[i][j] !== arr[i - (x - 8)][j - (y - 8)]) {
+        result += 1;
+      }
+    }
+  }
+  return result;
+}
