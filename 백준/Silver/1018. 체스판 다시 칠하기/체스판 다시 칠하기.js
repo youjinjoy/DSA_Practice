@@ -33,12 +33,20 @@ rl.on("line", (line) => {
     }
   }
 
-  let min = 2500;
+  let min = 32;
 
   for (let x = 8; x <= N; x++) {
     for (let y = 8; y <= M; y++) {
-      min = Math.min(min, calculateFromBoard(x, y, black));
-      min = Math.min(min, calculateFromBoard(x, y, white));
+      min = Math.min(
+        ...[
+          min,
+          calculateFromBoard(x, y, black),
+          calculateFromBoard(x, y, white),
+        ]
+      );
+
+      // min = Math.min(min, calculateFromBoard(x, y, black));
+      // min = Math.min(min, calculateFromBoard(x, y, white));
     }
   }
 
