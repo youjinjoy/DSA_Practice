@@ -18,6 +18,7 @@ rl.on("line", (line) => {
   //  1) 자신보다 우선순위가 높은 연산자가 operStack 안에 있으면 해당 연산자를 pop해서 outStack에 push한다.
   //  2) '('는 우선순위와 상관 없이 무조건 push
   //  3) ')'가 나오면 operStack에서 '('를 만날 때까지 pop해서 연산자는 outStack에 push한다.
+  // * 우선순위가 같다면 왼쪽에 있는 것을 먼저 연산해야 함
 
   for (let i of infixExp) {
     if (["+", "-", "*", "/"].includes(i)) {
@@ -27,13 +28,12 @@ rl.on("line", (line) => {
           outStack.push(operStack.pop());
         } else if (["*", "/"].includes(i) && ["*", "/"].includes(top)) {
           outStack.push(operStack.pop());
-          operStack.push(i);
           break;
         } else {
-          operStack.push(i);
           break;
         }
       }
+      operStack.push(i);
     } else if (i === "(") {
       operStack.push(i);
     } else if (i === ")") {
