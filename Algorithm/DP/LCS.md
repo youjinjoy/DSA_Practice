@@ -38,9 +38,10 @@ Y=BDCABA
 
   LCS(i,j) = Xi와 Yj의 LCS 길이
 
-  LCS(i,j) = ┌ LCS(i-1,j-1)+1 | if (xi = yj)
-  					 │
-  					 └ max(LCS(i-1,j), LCS(i,j-1)) | if (xi != yj)
+  LCS(i,j) =
+      ┌ LCS(i-1,j-1)+1 | if (xi = yj)
+      │
+      └ max(LCS(i-1,j), LCS(i,j-1)) | if (xi != yj)
 
   ---------------------------------------------------------
   # 문자열 구하기
