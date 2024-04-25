@@ -20,6 +20,7 @@ Y=BDCABA
 위의 예에서 BCAB, BDAB가 있고 길이가 5 이상인 공통 부분 문자열은 없다.
 
 - 그림 설명
+
   ![LCS](LCS1.png)
   ![LCS](LCS2.png)
   ![LCS](LCS3.png)
