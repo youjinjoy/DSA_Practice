@@ -20,13 +20,19 @@ Y=BDCABA
 위의 예에서 BCAB, BDAB가 있고 길이가 5 이상인 공통 부분 문자열은 없다.
 
 - 그림 설명
+
   ![LSC](LSC1.png)
+
   ![LSC](LSC2.png)
+
   ![LSC](LSC3.png)
+
   ![LSC](LSC4.png)
+
   ![LSC](LSC5.png)
 
 - 의사 코드
+
   ```
   Xi: x1, x2, ... , xi
   Yj: y1, y2, ... , yj
