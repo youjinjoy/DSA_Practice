@@ -1,4 +1,23 @@
 # DSA_Practice
-Data Structures and Algorithms Practice
 
-This is an auto push repository for Baekjoon Online Judge created with [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub).
+이 레포지토리는 다양한 자료구조와 알고리즘을 연습하기 위한 공간입니다.
+
+자료구조 및 알고리즘에 대한 학습 내용을 정리한 파일과, 백준과 프로그래머스에서 푼 문제가 BaekjoonHub를 통해 자동으로 업로드됩니다.
+
+## 디렉토리 구조
+
+### /Algorithm
+
+알고리즘에 대한 이론과 다양한 문제 해결 방법을 정리한 디렉토리입니다.
+
+### /DataStructure
+
+자주 사용되는 자료구조들을 활용하는 방법을 정리한 디렉토리입니다.
+
+### /백준
+
+백준 온라인 저지(BOJ)에서 푼 문제들을 자동으로 업로드하는 디렉토리입니다. 히스토리를 통해 같은 문제에 대해 이전 풀이를 볼 수 있습니다.
+
+### /프로그래머스
+
+프로그래머스에서 해결한 코딩 테스트 문제들을 자동으로 업로드하는 디렉토리입니다. 히스토리를 통해 같은 문제에 대해 이전 풀이를 볼 수 있습니다.
