@@ -21,11 +21,11 @@ Y=BDCABA
 
 - 그림 설명
 
-  ![LCS](LCS1.png)
-  ![LCS](LCS2.png)
-  ![LCS](LCS3.png)
-  ![LCS](LCS4.png)
-  ![LCS](LCS5.png)
+  <img src="LCS1.png" width="400px"/>
+  <img src="LCS2.png" width="400px"/>
+  <img src="LCS3.png" width="400px"/>
+  <img src="LCS4.png" width="400px"/>
+  <img src="LCS5.png" width="400px"/>
 
 - 의사 코드
 
