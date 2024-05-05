@@ -8,6 +8,7 @@ def solution(jobs):
     
     jobs.sort()
     time = jobs[0][0]
+    b = time-1
     while count < len(jobs):
         for s,t in jobs:
             if b < s <= time:
