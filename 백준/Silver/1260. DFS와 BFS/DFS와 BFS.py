@@ -1,6 +1,5 @@
 import sys
 from collections import defaultdict,deque
-sys.setrecursionlimit(10**9)
 input = sys.stdin.readline
 
 [N,M,V] = map(int,input().split(' '))
@@ -18,14 +17,16 @@ class Graph:
     for node in self.graph:
       print('key',node,':',self.graph[node])
 
-  def dfs(self,v):
-    if self.visited[v]:
-      return
-    else:
-      self.visited[v]=True
-      print(v, end=" ")
-      for u in sorted(self.graph[v]):
-        self.dfs(u)
+  def dfs(self,start):
+    stack = [start]
+    while stack:
+      v = stack.pop()
+      if not self.visited[v]:
+        self.visited[v]=True
+        print(v, end=" ")
+        for u in sorted(self.graph[v],reverse=True):
+          if not self.visited[u]:
+            stack.append(u)
 
   def bfs(self,start):
     q = deque([])
