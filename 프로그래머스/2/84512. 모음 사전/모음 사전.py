@@ -10,11 +10,9 @@ def solution(word):
             return False
         
         for c in "AEIOU":
-            current += c
             cnt[0] += 1
-            if dfs(current):
+            if dfs(current+c):
                 return True
-            current = current[:-1]
     dfs("")
     
     return cnt[0]
