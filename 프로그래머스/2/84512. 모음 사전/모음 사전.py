@@ -1,22 +1,20 @@
 def solution(word):
-    current = []
-    vowels = ['A','E','I','O','U']
     cnt = [0]
     
-    def dfs(depth):
+    def dfs(current):
         
-        if ''.join(current) == word:
+        if current == word:
             return True
         
-        if depth == 5:
+        if len(current) == 5:
             return False
         
-        for i in range(5):
-            current.append(vowels[i])
+        for c in "AEIOU":
+            current += c
             cnt[0] += 1
-            found = dfs(depth+1)
-            if(found) : return True
-            current.pop()
-    dfs(0)
+            if dfs(current):
+                return True
+            current = current[:-1]
+    dfs("")
     
     return cnt[0]
