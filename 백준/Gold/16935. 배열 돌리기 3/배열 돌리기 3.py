@@ -3,76 +3,77 @@ input = sys.stdin.readline
 
 height,width,R = map(int,input().split(' '))
 
-arr = [list(map(int,input().split(' '))) for _ in range(height)]
+A = [list(map(int,input().split(' '))) for _ in range(height)]
 
 operation = list(map(int,input().split(' ')))
 
-for op in operation:
+def measure(arr):
   height = len(arr)
   width = len(arr[0])
-  if op == 1:
-    # for _ in range(R):
-    for i in range(height//2):
-      temp = arr[i]
-      arr[i] = arr[height-(i+1)]
-      arr[height-(i+1)] = temp
-  elif op == 2:
-    # for _ in range(R):
-    for i in range(height):
-      for j in range(width//2):
-        temp = arr[i][j]
-        arr[i][j] = arr[i][width-(j+1)]
-        arr[i][width-(j+1)] = temp
-  elif op == 3:
-    # for _ in range(R):
-    maps = []
-    for j in range(len(arr[0])):
-      column = []
-      for i in range(len(arr)-1,-1,-1):
-        column.append(arr[i][j])
-      maps.append(column)
-    arr = maps
-  elif op == 4:
-    # for _ in range(R):
-    maps = []
-    for j in range(len(arr[0])-1,-1,-1):
-      row = []
-      for i in range(0,len(arr)):
-        row.append(arr[i][j])
-      maps.append(row)
-    arr = maps
-  elif op == 5:
-    # for _ in range(R):
-    temp = []
-    for i in range(0,height//2):
-      temp.append(arr[i][0:width//2])
-      for j in range(0,width//2):
-        arr[i][j] = arr[i-height//2][j]
-    for i in range(height//2,height):
-      for j in range(width//2):
-        arr[i][j] = arr[i][j+width//2]
-    for i in range(height//2,height):
-      for j in range(width//2,width):
-        arr[i][j] = arr[i-height//2][j]
-    for i in range(height//2):
-      for j in range(width//2,width):
-        arr[i][j] = temp[i][j-width//2]
-  elif op == 6:
-    # for _ in range(R):
-    temp = []
-    for i in range(0,height//2):
-      temp.append(arr[i][0:width//2])
-      for j in range(0,width//2):
-        arr[i][j] = arr[i][j+width//2]
-    for i in range(0,height//2):
-      for j in range(width//2,width):
-        arr[i][j] = arr[i+height//2][j]
-    for i in range(height//2,height):
-      for j in range(width//2,width):
-        arr[i][j] = arr[i][j-width//2]
-    for i in range(height//2,height):
-      for j in range(width//2):
-        arr[i][j] = temp[i-height//2][j]
+  height_half = height//2
+  width_half = width//2
+  return (height,width,height_half,width_half)
 
-for row in arr:
+def op_1(arr):
+  return arr[::-1]
+
+def op_2(arr):
+  temp = []
+  for row in arr:
+      temp.append(row[::-1])
+  return temp
+
+def op_3(arr):
+  height,width,_,_ = measure(arr)
+  temp = [[0 for _ in range(height)] for _ in range(width)]
+  for i in range(0,width):
+    for j in range(0,height):
+      temp[i][j] = arr[height-(j+1)][i]
+  return temp
+
+def op_4(arr):
+  height,width,_,_ = measure(arr)
+  temp = [[0 for _ in range(height)] for _ in range(width)]
+  for i in range(0,width):
+    for j in range(0,height):
+      temp[i][j] = arr[j][width-(i+1)]
+  return temp
+
+def op_5(arr):
+  height,width,height_half,width_half = measure(arr)
+  temp = [[0 for _ in range(width)]for _ in range(height)]
+  for i in range(0,height_half):
+    for j in range(0,width_half):
+      temp[i][j] = arr[i+height_half][j]       
+      temp[i][j+width_half] = arr[i][j]       
+      temp[i+height_half][j+width_half] = arr[i][j+width_half]       
+      temp[i+height_half][j] = arr[i+height_half][j+width_half]
+  return temp
+
+def op_6(arr):
+  height,width,height_half,width_half = measure(arr)
+  temp = [[0 for _ in range(width)]for _ in range(height)]
+  for i in range(0,height_half):
+    for j in range(0,width_half):
+      temp[i][j] = arr[i][j+width_half]       
+      temp[i][j+width_half] = arr[i+height_half][j+width_half]       
+      temp[i+height_half][j+width_half] = arr[i+height_half][j]       
+      temp[i+height_half][j] = arr[i][j]
+  return temp
+
+for op in operation:
+  if op == 1:
+    A = op_1(A)
+  elif op == 2:
+    A = op_2(A)
+  elif op == 3:
+    A = op_3(A)
+  elif op == 4:
+    A = op_4(A)
+  elif op == 5:
+    A = op_5(A)
+  elif op == 6:
+    A = op_6(A)
+
+for row in A:
   print(' '.join(map(str,row)))
