@@ -12,7 +12,12 @@ const cal = input[N+1].split(' ');
 
 // 로직
 function reverseUpdown() {
-    arr.reverse();
+    const height = arr.length;
+    for (let i = 0 ; i < Math.floor(height/2) ; i++) {
+        const temp = arr[i];
+        arr[i] = arr[height-i-1];
+        arr[height-i-1] = temp;
+    }
 }
 
 function reverseLeftRight() {
@@ -110,5 +115,5 @@ for (let c of cal) {
     }
 
 }
-const answer = arr.map((row)=>row.join(' ')).join('\n').trim();
+const answer = arr.map((row)=>row.join(' ')).join('\n');
 console.log(answer);
